@@ -1,0 +1,21 @@
+body {
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', sans-serif;
+
+}
+.img-logo {
+  width: 80px;
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+input {
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid lightgray; 
+}
+
+label {
+  margin: 10px;
+}
