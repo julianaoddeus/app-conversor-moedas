@@ -2,21 +2,21 @@ function update() {
   let moeda1 = $('#cotacaoDe :selected').val();
 
   document.getElementById('value').value = moeda1.value;
+  console.log(moeda1);
 }
+
 
 update();
 
 
 function obterValor() {
   let input = document.querySelector('#valor').value;
-
+  let moeda = ['USD-BRL','EUR-BRL','BTC-BRL']
+  
   $.ajax({
     type: "GET",
-    url: `https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL`,
-    success: (function (cotacao) {
-      let valor = cotacao.high
-      let codigo = cotacao.code
-      let data = cotacao.create_data
+    url: `https://economia.awesomeapi.com.br/last/${moeda}`,
+    success: (function (cotacao) {     
 
       document.getElementById('resposta').innerHTML =
         set ` 
