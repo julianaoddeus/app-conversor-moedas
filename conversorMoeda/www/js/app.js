@@ -1,34 +1,26 @@
-function update() {
-  let moeda1 = $('#cotacaoDe :selected').val();
-
-  document.getElementById('value').value = moeda1.value;
-  console.log(moeda1);
+function upDate() {
+  let moeda = $('#cotacaoDe :selected').val();
+  obterCotação(moeda)
 }
 
-
-update();
-
-
-function obterValor() {
-  let input = document.querySelector('#valor').value;
-  let moeda = ['USD-BRL','EUR-BRL','BTC-BRL']
-  
-  $.ajax({
-    type: "GET",
-    url: `https://economia.awesomeapi.com.br/last/${moeda}`,
-    success: (function (cotacao) {     
-
-      document.getElementById('resposta').innerHTML =
-        set ` 
-        
-      Calculando...
-          
-          `
-
+function obterCotação() {
+  fetch(`https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL`)
+    .then(res => res.json())
+    .then(data => {
+   
+     document.querySelector('#resposta').innerHTML = data.USDBRL.bid
     })
-  })
+    Dados()
+    upDate()
+}
+
+const Dados = (moeda) => {
+  const array = ['USD-BRL', 'EUR-BRL', 'BTC-BRL']
+  if (moeda == array[0]) {
+    return moeda
+}
+
 }
 
 
-
-document.querySelector('#btn-calcular').addEventListener('click', obterValor)
+document.querySelector('#btn-calcular').addEventListener('click', upDate)

@@ -27,25 +27,25 @@
     </div>
     <div class="row mt-5">
       <div class="col m-6">
-        <select class="form-select" id="cotacaoDe" onChange="update()">
+        <select class="form-select" id="cotacaoDe" onChange="upDate()">
           <option selected>Converter de:</option>
-          <option value="BRL">BRL</option>
-          <option value="USDBRL">USD</option>
-          <option value="EURBRL">EUR</option>
+          <option value="USDBRL">BRL</option>
+          <option value="URBRL">USD</option>
+          <option value="BTCBRL">EUR</option>
         </select>
       </div>
-      <div class="col m-6">
-        <select class="form-select" id="cotacaoPara" onChange="update()">
+      <div class="col m-6" style="color: #000;">
+        <select class="form-select" id="cotacaoPara" onChange="upDate()">
           <option selected>Para:</option>
-          <option value="BRL2">BRL</option>
-          <option value="USDBRL2">USD</option>
-          <option value="EURBRL2">EUR</option>
+          <option value="">BRL</option>
+          <option value="">USD</option>
+          <option value="">EUR</option>
         </select>
       </div>
     </div>
     <div class="card mt-5">
       <div class="card-body" id="resposta">
-        <pre id="value"></pre>
+        <pre id="resposta"></pre>
       </div>
     </div>
   </main>
