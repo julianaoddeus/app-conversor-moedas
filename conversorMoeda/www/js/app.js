@@ -4,7 +4,7 @@ function upDate() {
 }
 
 function obterCotação() {
-  fetch(`https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL`)
+  fetch(`https://v6.exchangerate-api.com/v6/0b15ef5e4192c33c16d03bea/latest/USD`)
     .then(res => res.json())
     .then(data => {
    
