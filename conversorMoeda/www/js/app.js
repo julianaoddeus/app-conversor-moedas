@@ -1,26 +1,24 @@
-function upDate() {
-  let moeda = $('#cotacaoDe :selected').val();
-  obterCotação(moeda)
+const primeiraMoeda = document.querySelector('[data-js="moeda-um"]')
+const segundaMoeda = document.querySelector('[data-js="moeda-dois"]')
+
+const apiURL = `https://v6.exchangerate-api.com/v6/0b15ef5e4192c33c16d03bea/latest/USD`
+
+const fetchBuscaTaxaCambio = async () =>{ 
+    const response = await fetch(apiURL)    
+    return await response.json()
 }
 
-function obterCotação() {
-  fetch(`https://v6.exchangerate-api.com/v6/0b15ef5e4192c33c16d03bea/latest/USD`)
-    .then(res => res.json())
-    .then(data => {
-   
-     document.querySelector('#resposta').innerHTML = data.USDBRL.bid
-    })
-    Dados()
-    upDate()
+const init = async ()=> {
+  const obterDados = await fetchBuscaTaxaCambio()
+
+  console.log(Object.keys(obterDados.conversion_rates))
+
+  const options = `<option>oi</option>`
+  
+  primeiraMoeda.innerHTML = options
+  segundaMoeda.innerHTML = options
 }
 
-const Dados = (moeda) => {
-  const array = ['USD-BRL', 'EUR-BRL', 'BTC-BRL']
-  if (moeda == array[0]) {
-    return moeda
-}
-
-}
+init()
 
 
-document.querySelector('#btn-calcular').addEventListener('click', upDate)

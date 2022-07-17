@@ -11,44 +11,36 @@
 </head>
 
 <body>
-  <header>
-    <nav class="navbar bg-light">
+  <div class="container-main">
+    <header>
+      <!-- <nav class="navbar bg-primary">
       <div class="container-fluid" style="height: 2.3rem"></div>      
-    </nav>
-    <img src="img/icon.png" alt="" class="img-logo" />
-  </header>
-  <main class="container">
-    <div class="row ">
-      <div class="col m-10">
-        <input type="text" class="form-control" placeholder="valor R$0,00" id="valor">
-        <button type="text" class="form-control btn mt-2" id="btn-calcular"
-         >Calcular</button>
+    </nav> -->
+      <img src="img/icon.png" alt="" class="img-logo" />
+    </header>
+    <main class="container">
+      <div class="row ">
+        <div class="col m-10">
+          <input type="number" class="form-control" placeholder="valor R$0,00" id="valor" maxlength="9">
+        </div>
       </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col m-6">
-        <select class="form-select" id="cotacaoDe" onChange="upDate()">
-          <option selected>Converter de:</option>
-          <option value="USDBRL">BRL</option>
-          <option value="URBRL">USD</option>
-          <option value="BTCBRL">EUR</option>
-        </select>
+      <div class="row mt-5">
+        <div class="col m-6">
+          <select class="form-select" data-js="moeda-um">
+          </select>
+        </div>
+        <div class="col m-6" style="color: #000;">
+          <select class="form-select" data-js="moeda-dois">
+          </select>
+        </div>
       </div>
-      <div class="col m-6" style="color: #000;">
-        <select class="form-select" id="cotacaoPara" onChange="upDate()">
-          <option selected>Para:</option>
-          <option value="">BRL</option>
-          <option value="">USD</option>
-          <option value="">EUR</option>
-        </select>
+      <div>
+
       </div>
-    </div>
-    <div class="card mt-5">
-      <div class="card-body" id="resposta">
-        <pre id="resposta"></pre>
-      </div>
-    </div>
-  </main>
+
+      <button type="button" class="form-control btn btn-primary " id="btn-calcular">Calcular</button>
+    </main>
+  </div>
   <script src="bootstrap/dist/js/bootstrap.bundle.js"></script>
   <script src="jquery/dist/jquery.js"></script>
   <script src="js/app.js"></script>
