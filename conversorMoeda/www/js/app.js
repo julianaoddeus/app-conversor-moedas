@@ -1,24 +1,28 @@
-const primeiraMoeda = document.querySelector('[data-js="moeda-um"]')
-const segundaMoeda = document.querySelector('[data-js="moeda-dois"]')
+const primeiraMoeda = document.querySelector('[data-js="primeira-moeda"]')
+const segundaMoeda = document.querySelector('[data-js="segunda-moeda"]')
+const converterValor = document.querySelector('[data-js="converter-valor"]')
+const moedaConvertida = document.querySelector('[moeda-convertida]')
 
 const apiURL = `https://v6.exchangerate-api.com/v6/0b15ef5e4192c33c16d03bea/latest/USD`
 
-const fetchBuscaTaxaCambio = async () =>{ 
-    const response = await fetch(apiURL)    
-    return await response.json()
+//obtem um array de propriedades das moedas
+const fetchBuscaTaxaCambio = async () => {
+  const response = await fetch(apiURL)
+  return await response.json()
 }
 
-const init = async ()=> {
+//mapeando o array e colocando nas options e fixando em USD e BRL
+const init = async () => {
   const obterDados = await fetchBuscaTaxaCambio()
 
-  console.log(Object.keys(obterDados.conversion_rates))
+  const getOptions = selectedMoeda => Object.keys(obterDados.conversion_rates)
+    .map(moeda => `<option ${moeda === selectedMoeda ? 'selected' : '' }>${moeda}</option>`).join('')
 
-  const options = `<option>oi</option>`
-  
-  primeiraMoeda.innerHTML = options
-  segundaMoeda.innerHTML = options
+  primeiraMoeda.innerHTML = getOptions('USD')
+  segundaMoeda.innerHTML = getOptions('BRL')
+
+   converterValor.textContent = `R$ ${obterDados.conversion_rates.BRL.toFixed(2)}`
+
 }
 
 init()
-
-
