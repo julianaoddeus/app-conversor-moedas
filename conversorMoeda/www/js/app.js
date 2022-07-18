@@ -1,7 +1,10 @@
 const primeiraMoeda = document.querySelector('[data-js="primeira-moeda"]')
 const segundaMoeda = document.querySelector('[data-js="segunda-moeda"]')
 const converterValor = document.querySelector('[data-js="converter-valor"]')
-const moedaConvertida = document.querySelector('[moeda-convertida]')
+const moedaConvertida = document.querySelector('#moeda-convertida')
+const valorInputAtualizado = document.querySelector('#input-valor')
+
+let mudancaValorInput = {}
 
 const apiURL = `https://v6.exchangerate-api.com/v6/0b15ef5e4192c33c16d03bea/latest/USD`
 
@@ -11,9 +14,14 @@ const fetchBuscaTaxaCambio = async () => {
   return await response.json()
 }
 
+
 //mapeando o array e colocando nas options e fixando em USD e BRL
 const init = async () => {
   const obterDados = await fetchBuscaTaxaCambio()
+
+  mudancaValorInput = {
+    ...obterDados
+  } // disponibiliza para toda aplicação os dados obtidos no request
 
   const getOptions = selectedMoeda => Object.keys(obterDados.conversion_rates)
     .map(moeda => `<option ${moeda === selectedMoeda ? 'selected' : '' }>${moeda}</option>`).join('')
@@ -21,8 +29,29 @@ const init = async () => {
   primeiraMoeda.innerHTML = getOptions('USD')
   segundaMoeda.innerHTML = getOptions('BRL')
 
-   converterValor.textContent = `R$ ${obterDados.conversion_rates.BRL.toFixed(2)}`
+
+  converterValor.textContent = `R$ ${obterDados.conversion_rates.BRL.toFixed(2)}`
+  moedaConvertida.textContent = `1 USD ${ obterDados.conversion_rates.BRL } BRL`
+
 
 }
+
+//pegando o valor do input e multiplicando os valores
+valorInputAtualizado.addEventListener('input', event => {
+  converterValor.textContent = (event.target.value * mudancaValorInput.conversion_rates[segundaMoeda.value]).toFixed(2)
+
+})
+
+
+segundaMoeda.addEventListener('input', event => {
+  const moedaValorAtualizado = mudancaValorInput.conversion_rates[event.target.value].toFixed(2)
+  console.log(moedaValorAtualizado)
+
+  converterValor.textContent = (valorInputAtualizado.value * moedaValorAtualizado).toFixed(2)
+  moedaConvertida.textContent = `1 USD = ${1 * mudancaValorInput.conversion_rates[segundaMoeda.value].toFixed(2)} ${segundaMoeda.value}`
+
+})
+
+
 
 init()
