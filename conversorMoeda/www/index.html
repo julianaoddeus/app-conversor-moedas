@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Moeda</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conversor de Moeda</title>
-  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-
-<body>
-  <div class="container-main">
-    <header>
-      <!-- <nav class="navbar bg-primary">
+  <body>
+    <div class="container-main">
+      <header>
+        <!-- <nav class="navbar bg-primary">
       <div class="container-fluid" style="height: 2.3rem"></div>      
     </nav> -->
-      <img src="img/icon.png" alt="" class="img-logo" />
-    </header>
-    <main class="container">
-      <div class="row ">
-        <div class="col m-10">
-          <input id="input-valor" type="number" min="1"  maxlength="9" class="form-control form-control-lg"  placeholder="1,00" value="1">
+        <img src="img/icon.png" alt="" class="img-logo" />
+      </header>
+      <main class="container">
+        <div class="row">
+          <div class="col m-10">
+            <input
+              id="input-valor"
+              type="number"
+              min="1"
+              maxlength="9"
+              class="form-control form-control-lg"
+              placeholder="1,00"
+              value="1"
+            />
+          </div>
         </div>
-      </div>
-      <div class="row mt-5">
-        <div class="col m-6">
-          <select class="form-select" data-js="primeira-moeda">
-          </select>
+        <div class="row mt-5">
+          <div class="col m-6">
+            <select class="form-select" data-js="primeira-moeda"></select>
+          </div>
+          <div class="col m-6" style="color: #000">
+            <select class="form-select" data-js="segunda-moeda"></select>
+          </div>
         </div>
-        <div class="col m-6 " style="color: #000;">
-          <select class="form-select" data-js="segunda-moeda">
-          </select>
+        <div
+          class="mt-3 resposta card border border-secondary mt-5"
+          role="alert"
+        >
+          <p data-js="converter-valor"></p>
+          <p id="moeda-convertida"></p>
         </div>
-      </div>
-      <div class="mt-3 resposta card border border-secondary  mt-5" role="alert">
-        <p data-js="converter-valor">
-        <p id="moeda-convertida"></p>
-      </div>
 
-      <!-- <button type="button" class="form-control btn btn-primary mt-5" id="btn-calcular">Calcular</button> -->
-    </main>
-  </div>
-  
-  
-  
-  <script src="bootstrap/dist/js/bootstrap.bundle.js"></script>
-  <script src="jquery/dist/jquery.js"></script>
-  <script src="js/app.js"></script>
-</body>
+        <!-- <button type="button" class="form-control btn btn-primary mt-5" id="btn-calcular">Calcular</button> -->
+      </main>
+    </div>
 
+    <script src="bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
