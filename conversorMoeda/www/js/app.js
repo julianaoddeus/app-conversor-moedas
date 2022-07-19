@@ -47,8 +47,6 @@ valorInputAtualizado.addEventListener('input', event => {
   converterValor.textContent = (
     event.target.value * mudancaValorInput.conversion_rates[segundaMoeda.value]
   ).toFixed(2)
-
-
 })
 
 segundaMoeda.addEventListener('input', event => {
@@ -74,7 +72,11 @@ primeiraMoeda.addEventListener('input', async event => {
     mudancaValorInput.conversion_rates[segundaMoeda.value]
   ).toFixed(2)
 
-  moedaConvertida.textContent = `1${primeiraMoeda.value} = ${1* mudancaValorInput.conversion_rates[segundaMoeda.value]} ${segundaMoeda.value}`
+  moedaConvertida.textContent = `1${primeiraMoeda.value} = ${
+    1 * mudancaValorInput.conversion_rates[segundaMoeda.value]
+  } ${segundaMoeda.value}`
 })
+
+valorInputAtualizado.focus()
 
 init()
