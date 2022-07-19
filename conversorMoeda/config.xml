@@ -5,6 +5,11 @@
     <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
         Apache Cordova Team
     </author>
+
+    <preference name="SplashScreen" value="screen" />
+    <splash src="res/splash.jpg" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
