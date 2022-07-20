@@ -16,7 +16,7 @@
 ### Projeto Figma 
 - https://www.figma.com/file/tVuIeX1k0VEzcGkLKWmOv6/Untitled?node-id=0%3A1
 
-###Recursos utilizados
+### Recursos utilizados
 
 API
 - https://www.exchangerate-api.com/
