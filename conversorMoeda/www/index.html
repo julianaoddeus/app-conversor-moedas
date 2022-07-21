@@ -20,7 +20,7 @@
       </header>
       <main class="container">
         <div class="row">
-          <div class="col m-10">
+          <div class="col-sm-12 ">
             <input
               id="input-valor"
               type="number"
@@ -28,9 +28,15 @@
               maxlength="9"
               class="form-control form-control-lg"
               placeholder="1,00"
-              value="1"
+              value="1"             
             />
           </div>
+        </div>
+        <div class="row">
+          <div class="alert text-danger alert-dismissible fade show" role="alert">
+            O valor precisa ser informado.
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+           </div>
         </div>
         <div class="row mt-5">
           <div class="col m-6">

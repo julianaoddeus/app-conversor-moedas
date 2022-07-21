@@ -25,13 +25,13 @@ const init = async () => {
 
   const getOptions = selectedMoeda =>
     Object.keys(mudancaValorInput.conversion_rates)
-      .map(
-        moeda =>
-          `<option ${
+    .map(
+      moeda =>
+      `<option ${
             moeda === selectedMoeda ? 'selected' : ''
           }>${moeda}</option>`
-      )
-      .join('')
+    )
+    .join('')
 
   primeiraMoeda.innerHTML = getOptions('USD')
   segundaMoeda.innerHTML = getOptions('BRL')
@@ -44,10 +44,17 @@ const init = async () => {
 
 //pegando o valor do input e multiplicando os valores
 valorInputAtualizado.addEventListener('input', event => {
-  converterValor.textContent = (
-    event.target.value * mudancaValorInput.conversion_rates[segundaMoeda.value]
-  ).toFixed(2)
+  
+    converterValor.textContent = (
+      event.target.value * mudancaValorInput.conversion_rates[segundaMoeda.value]
+    ).toFixed(2)
+    
+    let alert = document.querySelector('.alert')
+    alert.style.display = "block";
+
 })
+
+
 
 segundaMoeda.addEventListener('input', event => {
   const moedaValorAtualizado =
